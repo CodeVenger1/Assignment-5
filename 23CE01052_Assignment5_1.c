@@ -3,34 +3,34 @@ void main()
 {
     printf("Enter a number");
     int n;
-    int diffDig=0;
+    int diff=0;
     int rep;
-    int totalCountDig=0;
+    int total=0;
     scanf("%d", &n);
     int temp=n;
     while (temp>0)
     {
-        totalCountDig++;
+        total++;
         temp/=10;
     }
-    printf("Number of digits %d\n", totalCountDig);
-        int dig[totalCountDig];
+    printf("Number of digits %d\n", total);
+        int d[total];
     temp=n;
     int i,j;
-    for(i=0;i<totalCountDig;i++)
+    for(i=0;i<total;i++)
     {
-        dig[i]=temp%10;
+        d[i]=temp%10;
         temp/=10;
     }
-    for(i=0;i<totalCountDig;i++)
+    for(i=0;i<total;i++)
     {
         rep=0;
-        for(j=i+1;j<totalCountDig;j++)
+        for(j=i+1;j<total;j++)
         {
-            if(dig[i]==dig[j]) rep++;
+            if(d[i]==d[j]) rep++;
         }
-        if(rep==0) diffDig+=dig[i];
-        else diffDig+=0;
+        if(rep==0) diff+=d[i];
+        else diff+=0;
     }
-    printf("Sum of different digits= %d",diffDig);
+    printf("Sum of different digits= %d" diff);
 }

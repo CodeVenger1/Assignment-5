@@ -1,16 +1,19 @@
 #include<stdio.h>
-int main()
+void main()
 {
     printf("Enter a number \n");
-    int a,i,j,k,l,digit,temp;
+    int a,i,j,k,l,temp;
     scanf("%d", &a);
-    int dig[4];
+    int d[4];
+    int c[24];
     temp=a;
     for(i=0;i<4;i++)
     {
-        dig[i]=temp%10;
+        d[i]=temp%10;
         temp/=10;
     }
+    int q=0;
+    int c=0;
     for(i=0;i<4;i++)
     {
         for(j=0;j<4;j++)
@@ -19,10 +22,32 @@ int main()
             {
                 for(l=0;l<4;l++)
                 {
-                    if(dig[i]==dig[j] ||dig[i]==dig[k] ||dig[i]==dig[l] ||dig[j]==dig[k] ||dig[j]==dig[l] ||dig[k]==dig[l] ) continue;
-                    printf("%d%d%d%d\n",dig[i],dig[j],dig[k],dig[l]);
+                        if(i==j || i==k || i==l || j==k || j==l || k==l || k==i ) continue;
+                        else
+                        {
+                        c[q]=(1000*d[i])+(100*d[j])+(10*d[k])+d[l];
+                        q++;
+                        }
                 }
             }
+        }
+    }
+    int h=1;
+    for(int w=0;w<24;w++)
+    {
+        int rep=0;
+        for(int e=w+1;e<24;e++)
+        {
+            if(c[w]==c[e])
+            {rep++;}
+        }
+        if((c[w]>=1000) && (c[w]<=9999))
+        {
+        if(rep==0)
+        {
+             printf("%d\t%d\n",h, c[w]);
+             h++;
+        }
         }
     }
 }
